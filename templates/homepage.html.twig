@@ -2,7 +2,8 @@
     <head>
         {% block head %}
             <meta charset="UTF-8">
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
+            <link href="{{ asset('css/app.css') }}" rel="stylesheet"/> <!-- works -->
+            <link href="{{ asset('app.css') }}" rel="stylesheet"/> <!-- does not resolve (404) -->
         {% endblock %}
         <title>{% block title %}These are our latest videos{% endblock %}</title>
     </head>

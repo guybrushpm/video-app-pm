@@ -1,4 +1,6 @@
-/*this file does not compile into /public/build*/
+/*
+this file does not compile into /public/build
+*/
 
 body {
     background-color: green;

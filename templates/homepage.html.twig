@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
+        {% endblock %}
+        <title>{% block title %}These are our latest videos{% endblock %}</title>
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}
+                <h1>These are our latest videos</h1>
+                {% for key, video in videos %}
+                    <article>
+                        <header>{{ video.name }}</header>
+                        <section><a href="{{ path('videos',  {video: key}) }}" target="_self">link</a></section>
+                    </article>
+                {% endfor %}
+            {% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>
+
+
+{# here you can use the Twig variable 'videos' that gets passed from the controller #}

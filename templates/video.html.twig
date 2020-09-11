@@ -1,0 +1,24 @@
+{% extends "homepage.html.twig" %}
+
+{% block head %}
+   {{ parent() }}
+   <link rel="stylesheet" href="{{paths.player}}plyr.css" />
+   <script src="{{paths.player}}plyr.js"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const player = Plyr.setup('.js-player');
+      });
+   </script>
+{% endblock %}
+{% block title %} {{ videodata.name }}{% endblock %}
+{% block content %}
+   <article>
+      <header>{{ videodata.name }}</header>
+      <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
+   </article>
+{% endblock %}
+
+{# 
+   here you can use the Twig variable 'videodata' that gets passed from the controller. 
+   it has the fields 'name' and 'file' 
+#}

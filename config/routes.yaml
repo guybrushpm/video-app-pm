@@ -1,0 +1,6 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+videos:
+    path: /videos/{video}
+    controller: App\Controller\VideoController::index

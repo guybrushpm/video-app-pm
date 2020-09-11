@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.4.1",
+    "plyr": "^3.5.10",
+    "popper.js": "^1.16.1",
+    "sass-loader": "7.0.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.28.2",
+    "node-sass": "^4.14.1",
+    "webpack-notifier": "^1.6.0"
+  }
+}

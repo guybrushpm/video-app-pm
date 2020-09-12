@@ -1,25 +1,35 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
         {% block head %}
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> <!-- works -->
             <link href="{{ asset('css/app.css') }}" rel="stylesheet"/> <!-- works -->
+            <link href="{{ asset('bootstrap.min.css') }}" rel="stylesheet"> <!-- does not resolve (404) -->
             <link href="{{ asset('app.css') }}" rel="stylesheet"/> <!-- does not resolve (404) -->
         {% endblock %}
         <title>{% block title %}These are our latest videos{% endblock %}</title>
     </head>
-    <body>
-        <div id="content">
-            {% block content %}
-                <h1>These are our latest videos</h1>
-                {% for key, video in videos %}
-                    <article>
-                        <header>{{ video.name }}</header>
-                        <section><a href="{{ path('videos',  {video: key}) }}" target="_self">link</a></section>
-                    </article>
-                {% endfor %}
-            {% endblock %}
-            {% block javascripts %}{% endblock %}
+    <body class="py-4">
+        <div id="content" class="container-md">
+                {% block content %}
+                <div class="row mb-3">
+                    <div class="col"><h3>These are our latest videos</h3></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="list-group">
+                            {% for key, video in videos %}
+                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span><a href="{{ path('videos',  {video: key}) }}" target="_self" class="list-group-item list-group-item-action">{{ video.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            
         </div>
+        {% block javascripts %}{% endblock %} <!-- no need so far -->
     </body>
 </html>
 

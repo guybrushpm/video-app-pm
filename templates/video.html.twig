@@ -12,10 +12,19 @@
 {% endblock %}
 {% block title %} {{ videodata.name }}{% endblock %}
 {% block content %}
-   <article>
-      <header>{{ videodata.name }}</header>
-      <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
-   </article>
+   <div class="row mb-3">
+      <div class="col"><h3>{{ videodata.name }}</h3></div>
+   </div>
+   <div class="row mb-3">
+      <div class="col">
+         <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
+      </div>
+   </div>
+   <div class="row mb-3">
+      <div class="col">
+         <a class="btn btn-outline-primary btn-sm" href="/" role="button">Zurück</a>
+      </div>
+   </div>
 {% endblock %}
 
 {# 

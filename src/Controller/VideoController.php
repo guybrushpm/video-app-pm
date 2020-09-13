@@ -9,6 +9,7 @@ class VideoController extends AbstractController
     public function index($video)
     {
         $paths = [
+            /* theese should be moved to a more central location to avoid spreading them over multiple documents, e.g constants,statics,sourcemaps */
             'videos' => '/videofiles/',
             'player' => '/static/plyr/'
             ];

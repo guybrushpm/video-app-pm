@@ -1,11 +1,9 @@
-/*
-this file does not compile into /public/build
--> please use /public/css/app.css until this issue is solved
-*/
-
 .list-group-item-action:focus, .list-group-item-action:hover {
     z-index: 2;
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+}
+.plyr {
+    border: 1px solid #666666;
 }

@@ -4,16 +4,15 @@
         {% block head %}
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> <!-- works -->
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet"/> <!-- works -->
-            <link href="{{ asset('bootstrap.min.css') }}" rel="stylesheet"> <!-- does not resolve (404) -->
-            <link href="{{ asset('app.css') }}" rel="stylesheet"/> <!-- does not resolve (404) -->
+        {% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }} 
         {% endblock %}
         <title>{% block title %}These are our latest videos{% endblock %}</title>
     </head>
     <body class="py-4">
-        <div id="content" class="container-md">
-                {% block content %}
+        {% block content %}
+            <div id="content" class="container-md">
                 <div class="row mb-3">
                     <div class="col"><h3>These are our latest videos</h3></div>
                 </div>
@@ -26,9 +25,8 @@
                         </div>
                     </div>
                 </div>
-                {% endblock %}
-            
-        </div>
+            </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %} <!-- no need so far -->
     </body>
 </html>

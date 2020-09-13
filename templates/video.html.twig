@@ -2,31 +2,62 @@
 
 {% block head %}
    {{ parent() }}
-   <link rel="stylesheet" href="{{paths.player}}plyr.css" />
    <script src="{{paths.player}}plyr.js"></script>
+{% endblock %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" href="{{paths.player}}plyr.css" />
+{% endblock %}
+{% block title %} {{ videodata.name }} {% endblock %}
+{% block content %}
+   <!-- 3 columns begin -->
+   <div id="content" class="container">
+      <div class="row mb-3">
+         <div class="col"><h3>{{ videodata.name }}</h3></div>
+      </div>
+      <div class="row mb-3">
+         <div class="col-md-3"></div>
+         <div class="col-sm-12 col-md-6">
+            <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
+         </div>
+         <div class="col-md-3"></div>
+      </div>
+      <div class="row mb-3">
+         <div class="col">
+            <a class="btn btn-outline-primary btn-sm" href="/" role="button">Zurück</a>
+         </div>
+      </div>
+   </div>
+   <!-- 3 columns end -->
+
+   <!-- alternative implementation begin -->
+   <div id="alt-content" class="container-md mt-5">
+      <div class="row mb-3">
+         <div class="col">Alternative Darstellung (Container-sizing anstatt column-sizing)</h3></div>
+      </div>
+      <div class="row mb-3">
+         <div class="col"><h3>{{ videodata.name }}</h3></div>
+      </div>
+      <div class="row mb-3">
+         <div class="col">
+            <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
+         </div>
+      </div>
+      <div class="row mb-3">
+         <div class="col">
+            <a class="btn btn-outline-primary btn-sm" href="/" role="button">Zurück</a>
+         </div>
+      </div>
+   </div>
+   <!-- alternative implementation end -->
+{% endblock %}
+{% block javascripts %} 
    <script>
       document.addEventListener('DOMContentLoaded', () => {
          const player = Plyr.setup('.js-player');
       });
    </script>
 {% endblock %}
-{% block title %} {{ videodata.name }}{% endblock %}
-{% block content %}
-   <div class="row mb-3">
-      <div class="col"><h3>{{ videodata.name }}</h3></div>
-   </div>
-   <div class="row mb-3">
-      <div class="col">
-         <video class="js-player"><source src="{{ paths.videos }}{{ videodata.file }}"/></video>
-      </div>
-   </div>
-   <div class="row mb-3">
-      <div class="col">
-         <a class="btn btn-outline-primary btn-sm" href="/" role="button">Zurück</a>
-      </div>
-   </div>
-{% endblock %}
-
 {# 
    here you can use the Twig variable 'videodata' that gets passed from the controller. 
    it has the fields 'name' and 'file' 
